@@ -23,3 +23,12 @@
 #tabs-header li.visited {
   @apply border-b-2 border-red-500;
 }
+.tabs li > div:last-child {
+  @apply hidden;
+}
+.tabs li > div:first-child div.active {
+  @apply -rotate-180 text-red-600;
+}
+.tabs li>div:last-child.active{
+  @apply block;
+}

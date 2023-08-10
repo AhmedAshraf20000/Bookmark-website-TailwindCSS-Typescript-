@@ -3,6 +3,9 @@ const menu = document.querySelector(".menu");
 const icon = document.querySelector(".hamburger");
 const tabsHeader = Array.from(document.querySelectorAll("#tabs-header li"));
 const tabsArray = Array.from(document.querySelectorAll("#tabs-container>div"));
+const arrowDiv = Array.from(document.querySelectorAll(".tabs li>div:first-child div"));
+const arrow = Array.from(document.querySelectorAll(".tabs li>div:first-child"));
+const tabText = Array.from(document.querySelectorAll(".tabs li>div:last-child"));
 icon.onclick = () => {
     menu.classList.toggle('block');
     menu.classList.toggle('hidden');
@@ -16,3 +19,13 @@ tabsHeader.forEach((e, i) => e.onclick = () => {
     tab.classList.remove("hidden");
     tab.classList.add("flex");
 });
+arrow.forEach(((e, i) => {
+    let div = arrowDiv[i];
+    let tab = tabText[i];
+    e.onclick = () => {
+        arrowDiv.forEach(e => e.classList.remove("active"));
+        tabText.forEach(e => e.classList.remove("active"));
+        div.classList.add("active");
+        tab.classList.add("active");
+    };
+}));
